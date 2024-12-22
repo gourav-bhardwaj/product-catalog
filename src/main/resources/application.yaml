@@ -1,0 +1,51 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: product-catalog
+  data:
+    mongodb:
+      uri: mongodb://root:mongo123@127.0.0.1:27017/
+      database: e-commerce-db
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ecommdb
+    username: pguser
+    password: pgpass
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    database: POSTGRESQL
+    generate-ddl: true
+#    show-sql: true
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: '/v3/api-docs'
+  swagger-ui:
+    enabled: true
+    path: '/swagger-ui.html'
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+retry:
+  max-attempts: 3
+  backoff: 5000
+    
+
+
+
