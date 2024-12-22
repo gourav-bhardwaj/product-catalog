@@ -1,8 +1,6 @@
 package com.sp.product_catalog.model;
 
-import com.sp.product_catalog.common.ProductMediaType;
 import lombok.*;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
