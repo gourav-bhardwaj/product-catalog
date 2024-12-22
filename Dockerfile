@@ -8,8 +8,8 @@ ARG JAR_FILE=product-catalog-*-SNAPSHOT.jar
 
 COPY target/${JAR_FILE} ${APP_HOME}/product-catalog.jar
 
-RUN useradd --uid 98871 appuser && \
-    groupadd --uid 98871 --gid appgroup --create-home --home-dir ${APP_HOME} appuser && \
+RUN groupadd --gid 98871 appgroup && \
+    useradd --uid 98871 --gid appgroup --create-home --home-dir ${APP_HOME} appuser && \
     chown -R appuser:appgroup ${APP_HOME}
 
 USER appuser
